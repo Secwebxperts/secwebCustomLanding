@@ -10,6 +10,7 @@ const preview: Preview = {
         order: ["ui", "components", ["index", "header", "main", "footer", "*"]],
       },
     },
+
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -28,7 +29,8 @@ const preview: Preview = {
         ...CustomViewports(),
       },
     },
-    layout: "fullscreen",
+
+    layout: "fullscreen", // "fullscreen" | "centered" | "padded"
   },
 };
 

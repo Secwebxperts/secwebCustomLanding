@@ -8,6 +8,7 @@ const config = {
   semi: true,
   singleQuote: false,
   plugins: ["prettier-plugin-tailwindcss"],
+  tailwindFunctions: ["clsx", "cva"],
   tailwindStylesheet: "./src/styles/globals.css",
 };
 
