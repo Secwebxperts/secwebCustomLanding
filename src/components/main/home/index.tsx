@@ -16,6 +16,8 @@ import { Button } from "@/ui/button";
 import {
   faq_data,
   ourProcess_data,
+  portfolio_cardRowData,
+  service_cardData,
   support247_informationData,
   support247_tooltipCardData,
   testimonial_data,
@@ -23,9 +25,9 @@ import {
 import TestimonialCard from "@/ui/testimonial-card";
 import {
   CardImage,
-  CardWithTooltip,
+  SupportCardWithTooltip,
   TooltipContent,
-} from "@/ui/card-with-tooltip";
+} from "@/ui/support-card-with-tooltip";
 import Card from "@/ui/card";
 import {
   ProcessCard,
@@ -33,6 +35,27 @@ import {
   ProcessCardDescription,
   ProcessCardHeading,
 } from "@/ui/process-card";
+import {
+  PortfolioCardRow,
+  PortfolioCardDescription,
+  PortfolioCardHeader,
+  PortfolioCardBadge,
+  PortfolioCardHeading,
+  PortfolioCardContent,
+  PortfolioCardItem,
+  PortfolioCardFooter,
+  PortfolioCardTag,
+  PortfolioCardImage,
+} from "@/ui/portfolio-card";
+import {
+  ServiceCard,
+  ServiceCardHeader,
+  ServiceCardIcon,
+  ServiceCardHeading,
+  ServiceCardSubHeading,
+  ServiceCardContent,
+  ServiceCardImage,
+} from "@/ui/service-card";
 
 export default function HomePageComp({ ...props }: ComponentProps<"div">) {
   return (
@@ -173,7 +196,34 @@ export function Services({ ...props }: ComponentProps<"section">) {
         </p>
       </div>
 
-      <div className={cn(`pb-20`)}></div>
+      <div className={cn(`px-10 py-20 md:px-20 lg:px-30`)}>
+        <div
+          className={cn(`m-auto flex max-w-max flex-wrap justify-center gap-4`)}
+        >
+          {service_cardData.map((card) => {
+            const {
+              cardContent,
+              cardHeading,
+              cardIcon,
+              cardImage,
+              cardSubheading,
+            } = card;
+            return (
+              <ServiceCard key={cardHeading}>
+                <ServiceCardIcon>{cardIcon({})}</ServiceCardIcon>
+                <ServiceCardHeader>
+                  <ServiceCardHeading>{cardHeading}</ServiceCardHeading>
+                  <ServiceCardSubHeading>
+                    {cardSubheading}
+                  </ServiceCardSubHeading>
+                </ServiceCardHeader>
+                <ServiceCardContent>{cardContent}</ServiceCardContent>
+                <ServiceCardImage alt={`Card image`} src={cardImage} />
+              </ServiceCard>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }
@@ -216,7 +266,43 @@ export function Portfolio({ ...props }: ComponentProps<"section">) {
         <Button>Book A 15 min Call</Button>
       </div>
 
-      <div className={cn(`pb-20`)}></div>
+      <div className={cn(`py-20`)}>
+        <div className={cn(`m-auto max-w-max space-y-3`)}>
+          {portfolio_cardRowData.map((row) => {
+            const { badgeText, heading, images, showcasingItem, tags } = row;
+            return (
+              <PortfolioCardRow key={heading}>
+                <PortfolioCardDescription>
+                  <PortfolioCardHeader>
+                    <PortfolioCardBadge>{badgeText}</PortfolioCardBadge>
+                    <PortfolioCardHeading>{heading}</PortfolioCardHeading>
+                  </PortfolioCardHeader>
+                  <PortfolioCardContent>
+                    {showcasingItem.map((item) => {
+                      return (
+                        <PortfolioCardItem key={item}>{item}</PortfolioCardItem>
+                      );
+                    })}
+                  </PortfolioCardContent>
+                  <PortfolioCardFooter>
+                    {tags.map((tag) => {
+                      return (
+                        <PortfolioCardTag key={tag}>{tag}</PortfolioCardTag>
+                      );
+                    })}
+                  </PortfolioCardFooter>
+                </PortfolioCardDescription>
+
+                {images.map((image) => {
+                  return (
+                    <PortfolioCardImage key={image} alt="image" src={image} />
+                  );
+                })}
+              </PortfolioCardRow>
+            );
+          })}
+        </div>
+      </div>
     </section>
   );
 }
@@ -265,10 +351,14 @@ export function Support247({ ...props }: ComponentProps<"section">) {
         >
           {support247_tooltipCardData.map((carddata, idx, arr) => {
             const middleIndex = Math.floor(arr.length / 2) + 1;
+            // used to decide how much the element should move and which side
             let movingAmmountMultiplier: number;
             let middle: number, middlePlus: number;
             const isArrLengthEven = arr.length % 2 === 0;
-            const positon = idx + 1;
+
+            // element position in the array as idx is "0" for first element
+            // it causes problem during calculation
+            const elementPositon = idx + 1;
 
             /**
              * THIS PORTION OF LOGIC IS LITTLE COMPLEX !!!
@@ -282,17 +372,17 @@ export function Support247({ ...props }: ComponentProps<"section">) {
             // for even
             if (arr.length % 2 === 0) {
               movingAmmountMultiplier =
-                positon < middleIndex
-                  ? positon - 0.5 - (middleIndex - 1)
-                  : positon + 0.5 - middleIndex;
+                elementPositon < middleIndex
+                  ? elementPositon - 0.5 - (middleIndex - 1)
+                  : elementPositon + 0.5 - middleIndex;
               middle = middleIndex - 1;
               middlePlus = middle + 1;
             } else {
               // for odd
               movingAmmountMultiplier =
-                positon < middleIndex
-                  ? positon - middleIndex
-                  : positon - middleIndex;
+                elementPositon < middleIndex
+                  ? elementPositon - middleIndex
+                  : elementPositon - middleIndex;
               middle = middleIndex;
               middlePlus = 0;
             }
@@ -300,9 +390,9 @@ export function Support247({ ...props }: ComponentProps<"section">) {
             const { alt, src, tooltipContent } = carddata;
             return (
               // ! remove idx with proper key value
-              <CardWithTooltip
-                data-no={positon}
-                key={`${src.toString()}-${positon}`}
+              <SupportCardWithTooltip
+                data-no={elementPositon}
+                key={`${src.toString()}-${elementPositon}`}
                 /**
                  * ammount to move (to left or -ve left) to squize
                  * cards together depending on index of the element
@@ -312,43 +402,53 @@ export function Support247({ ...props }: ComponentProps<"section">) {
                   `relative hidden transition-all`,
                   {
                     // different ammount of rotation depending on index of the element
-                    "-rotate-6": positon % 4 === 1,
-                    "rotate-8": positon % 4 === 2,
-                    "rotate-5": positon % 4 === 3,
-                    "-rotate-9": positon % 4 === 0,
+                    "-rotate-6": elementPositon % 4 === 1,
+                    "rotate-8": elementPositon % 4 === 2,
+                    "rotate-5": elementPositon % 4 === 3,
+                    "-rotate-9": elementPositon % 4 === 0,
                   },
                   // media querry class names for when arr.length is odd
                   {
-                    "inline-block": !isArrLengthEven && positon === middle,
+                    "inline-block":
+                      !isArrLengthEven && elementPositon === middle,
                     "md:inline-block":
                       !isArrLengthEven &&
-                      positon >= middle - 1 &&
-                      positon <= middle + 1,
+                      elementPositon >= middle - 1 &&
+                      elementPositon <= middle + 1,
                     "lg:inline-block":
                       !isArrLengthEven &&
-                      positon >= middle - 2 &&
-                      positon <= middle + 2,
+                      elementPositon >= middle - 2 &&
+                      elementPositon <= middle + 2,
                   },
                   // media querry class names for when arr.length is even
                   {
                     "inline-block":
                       isArrLengthEven &&
-                      (positon === middle || positon === middlePlus),
+                      (elementPositon === middle ||
+                        elementPositon === middlePlus),
                     "lg:inline-block":
                       isArrLengthEven &&
-                      positon >= middle - 1 &&
-                      positon <= middlePlus + 1,
+                      elementPositon >= middle - 1 &&
+                      elementPositon <= middlePlus + 1,
                     "xl:inline-block":
                       isArrLengthEven &&
-                      positon >= middle - 2 &&
-                      positon <= middlePlus + 2,
+                      elementPositon >= middle - 2 &&
+                      elementPositon <= middlePlus + 2,
                   }
-                  // `inline-block`
                 )}
               >
                 <CardImage alt={alt} src={src} />
-                <TooltipContent>{tooltipContent}</TooltipContent>
-              </CardWithTooltip>
+                <TooltipContent
+                  className={cn(``, {
+                    "bg-green-600": elementPositon % 4 === 1,
+                    "bg-primary-600": elementPositon % 4 === 2,
+                    "bg-amber-600": elementPositon % 4 === 3,
+                    "bg-rose-600": elementPositon % 4 === 0,
+                  })}
+                >
+                  {tooltipContent}
+                </TooltipContent>
+              </SupportCardWithTooltip>
             );
           })}
         </div>
@@ -532,7 +632,6 @@ export function Testimonials({ ...props }: ComponentProps<"section">) {
 
         <div
           className={cn(
-            // `h-full columns-1 md:columns-2 lg:columns-3`,
             `m-auto grid max-w-max min-w-60 grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3`
           )}
         >

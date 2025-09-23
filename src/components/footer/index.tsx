@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { ComponentProps } from "react";
 import { FaPhone } from "react-icons/fa6";
 
-export default function Footer({ ...props }: ComponentProps<"form">) {
+export default function Footer({ ...props }: ComponentProps<"footer">) {
   return (
     <footer {...props} className={cn(`relative isolate`, props.className)}>
       <MainAndFooterDivider />

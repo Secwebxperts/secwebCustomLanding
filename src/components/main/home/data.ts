@@ -4,16 +4,79 @@ import { ComponentProps } from "react";
 import { IconType } from "react-icons";
 import { FaHeadphonesAlt } from "react-icons/fa";
 
+export const service_cardData: {
+  cardIcon: IconType;
+  cardHeading: string;
+  cardSubheading: string;
+  cardContent: string;
+  cardImage: string;
+}[] = [
+  {
+    cardContent:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, culpa.",
+    cardHeading: "Lorem, ipsum.",
+    cardSubheading: "Lorem ipsum dolor sit.",
+    cardImage: "/portrait-1.jpg",
+    cardIcon: FaHeadphonesAlt,
+  },
+  {
+    cardContent:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, culpa.",
+    cardHeading: "consectetur adipis",
+    cardSubheading: "consectetur adipisicing elit.",
+    cardImage: "/portrait-2.jpg",
+    cardIcon: FaHeadphonesAlt,
+  },
+  {
+    cardContent:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, culpa.",
+    cardHeading: "Eveniet fugit",
+    cardSubheading: "Eveniet fugit expedita numquam",
+    cardImage: "/portrait-3.jpg",
+    cardIcon: FaHeadphonesAlt,
+  },
+];
+
+export const portfolio_cardRowData: {
+  badgeText: string | number;
+  heading: string;
+  tags: string[];
+  showcasingItem: string[];
+  images: [string, string] | [string];
+}[] = [
+  {
+    badgeText: "2025",
+    heading: "Lorem ipsum dolor",
+    tags: ["Lorem", "ipsum"],
+    showcasingItem: ["Lorem", "ipsum", "dolor", "sit", "amet"],
+    images: ["/portrait-1.jpg", "/logo.png"],
+  },
+  {
+    badgeText: "2025",
+    heading: "sit amet",
+    tags: ["Lorem", "ipsum"],
+    showcasingItem: ["Lorem", "ipsum", "dolor", "sit", "amet"],
+    images: ["/portrait-1.jpg", "/logo.png"],
+  },
+  {
+    badgeText: "2025",
+    heading: "consectetur adipisicing",
+    tags: ["Lorem", "ipsum"],
+    showcasingItem: ["Lorem", "ipsum", "dolor", "sit", "amet"],
+    images: ["/portrait-1.jpg", "/logo.png"],
+  },
+];
+
 export const support247_tooltipCardData: ({ tooltipContent: string } & Pick<
   ComponentProps<typeof Image>,
   "src" | "alt"
 >)[] = [
-  { tooltipContent: "lorem ipsum", alt: "lorem ipsum", src: "/portrait.jpg" },
-  { tooltipContent: "lorem ipsum", alt: "lorem ipsum", src: "/portrait.jpg" },
-  { tooltipContent: "lorem ipsum", alt: "lorem ipsum", src: "/portrait.jpg" },
-  { tooltipContent: "lorem ipsum", alt: "lorem ipsum", src: "/portrait.jpg" },
-  { tooltipContent: "lorem ipsum", alt: "lorem ipsum", src: "/portrait.jpg" },
-  { tooltipContent: "lorem ipsum", alt: "lorem ipsum", src: "/portrait.jpg" },
+  { tooltipContent: "lorem ipsum", alt: "lorem ipsum", src: "/portrait-1.jpg" },
+  { tooltipContent: "lorem ipsum", alt: "lorem ipsum", src: "/portrait-1.jpg" },
+  { tooltipContent: "lorem ipsum", alt: "lorem ipsum", src: "/portrait-1.jpg" },
+  { tooltipContent: "lorem ipsum", alt: "lorem ipsum", src: "/portrait-1.jpg" },
+  { tooltipContent: "lorem ipsum", alt: "lorem ipsum", src: "/portrait-1.jpg" },
+  { tooltipContent: "lorem ipsum", alt: "lorem ipsum", src: "/portrait-1.jpg" },
 ];
 
 export const support247_informationData: {
