@@ -2,7 +2,72 @@ import { TestimonialCardProps } from "@/ui/testimonial-card";
 import Image from "next/image";
 import { ComponentProps } from "react";
 import { IconType } from "react-icons";
-import { FaHeadphonesAlt } from "react-icons/fa";
+import {
+  FaHeadphonesAlt,
+  FaAccessibleIcon,
+  FaAccusoft,
+  FaAddressBook,
+  FaAdjust,
+  FaAddressCard,
+} from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa6";
+
+export const heroSection_trustedBy: { icon: IconType; companyName: string }[] =
+  [
+    { icon: FaHeadphonesAlt, companyName: "Lorem ipsum" },
+    { icon: FaAccessibleIcon, companyName: "dolor sit" },
+    { icon: FaAccusoft, companyName: "amet consectetur" },
+    { icon: FaAddressBook, companyName: "adipisicing" },
+    { icon: FaAdjust, companyName: "Laborum quis" },
+    { icon: FaAddressCard, companyName: "nesciunt" },
+    { icon: FaHeadphonesAlt, companyName: "quod adipisci" },
+    { icon: FaAccessibleIcon, companyName: "cumque voluptatem" },
+    { icon: FaAccusoft, companyName: "perferendis" },
+    { icon: FaAddressBook, companyName: "veritatis" },
+    { icon: FaAdjust, companyName: "ducimus" },
+    { icon: FaAddressCard, companyName: "Autem sapiente" },
+  ];
+
+export const features_circleingImages: {
+  imageSrc: string;
+  imageAltText: string;
+}[] = [
+  { imageAltText: "portrait-1", imageSrc: "/portrait-1.jpg" },
+  { imageAltText: "portrait-2", imageSrc: "/portrait-2.jpg" },
+  { imageAltText: "portrait-3", imageSrc: "/portrait-3.jpg" },
+  { imageAltText: "portrait-4", imageSrc: "/portrait-4.jpg" },
+  { imageAltText: "portrait-5", imageSrc: "/portrait-5.jpg" },
+  { imageAltText: "portrait-6", imageSrc: "/portrait-6.jpg" },
+  { imageAltText: "portrait-7", imageSrc: "/portrait-7.jpg" },
+  { imageAltText: "portrait-8", imageSrc: "/portrait-8.jpg" },
+];
+
+export const features_footerCard: {
+  icon: IconType;
+  cardHeading: string;
+  cardDetails: string;
+}[] = [
+  {
+    cardDetails: "Instant insights for faster decision-making.",
+    cardHeading: "Real-Time Data",
+    icon: FaAccessibleIcon,
+  },
+  {
+    cardDetails: "AI-powered image and video recognition.",
+    cardHeading: "Vision Capabilities",
+    icon: FaAccessibleIcon,
+  },
+  {
+    cardDetails: "Smart design that enhances user experience.",
+    cardHeading: "Optimized UX/UI",
+    icon: FaAccessibleIcon,
+  },
+  {
+    cardDetails: "Make data-driven decisions with AI insights.",
+    cardHeading: "Predictive Analytics",
+    icon: FaAccessibleIcon,
+  },
+];
 
 export const service_cardData: {
   cardIcon: IconType;
@@ -35,6 +100,14 @@ export const service_cardData: {
     cardImage: "/portrait-3.jpg",
     cardIcon: FaHeadphonesAlt,
   },
+];
+
+export const service_tagData: { tagIcon: IconType; tagText: string }[] = [
+  { tagIcon: FaAccessibleIcon, tagText: "Lorem ipsum" },
+  { tagIcon: FaAccusoft, tagText: "Dolor sit amet" },
+  { tagIcon: FaAddressBook, tagText: "consectetur adipisicing" },
+  { tagIcon: FaAdjust, tagText: "Ad saepe deserunt" },
+  { tagIcon: FaAddressCard, tagText: "earum aut delectus" },
 ];
 
 export const portfolio_cardRowData: {
@@ -123,6 +196,80 @@ export const ourProcess_data: {
       "We implement, optimize, and scale your AI-powered success for long-term impact.",
     heading: "Deploy Success",
     icons: FaHeadphonesAlt,
+  },
+];
+
+export const ourTeam_memberData: {
+  icon: IconType;
+  imageSrc: string;
+  imageAlt: string;
+  designation: string;
+  name: string;
+  socialPlatformLink: string;
+}[] = [
+  {
+    icon: FaGithub,
+    imageAlt: "Alt text",
+    imageSrc: "/portrait-1.jpg",
+    socialPlatformLink: "http://github.com/nirvikpurkait",
+    designation: "Intern",
+    name: "Nirvik Purkait",
+  },
+  {
+    icon: FaLinkedinIn,
+    imageAlt: "Alt text",
+    imageSrc: "/portrait-1.jpg",
+    socialPlatformLink: "http://github.com",
+    name: "Priyansu Das",
+    designation: "Graphic designer",
+  },
+  {
+    icon: FaTwitter,
+    imageAlt: "Alt text",
+    imageSrc: "/portrait-1.jpg",
+    socialPlatformLink: "http://github.com",
+    name: "Sabhya Sachi Paira",
+    designation: "Co-Founder, COO",
+  },
+  {
+    icon: FaGithub,
+    imageAlt: "Alt text",
+    imageSrc: "/portrait-1.jpg",
+    socialPlatformLink: "http://github.com",
+    name: "Sathya Sachi Paira",
+    designation: "Chief Executive Officer",
+  },
+  {
+    icon: FaLinkedinIn,
+    imageAlt: "Alt text",
+    imageSrc: "/portrait-1.jpg",
+    socialPlatformLink: "http://github.com",
+    name: "Pinaki Sasmal",
+    designation: "Chief Technology Officer",
+  },
+  {
+    icon: FaTwitter,
+    imageAlt: "Alt text",
+    imageSrc: "/portrait-1.jpg",
+    socialPlatformLink: "http://github.com",
+    name: "Badhan Das",
+    designation: "Chief Marketing Officer",
+  },
+  {
+    icon: FaGithub,
+    imageAlt: "Alt text",
+    imageSrc: "/portrait-1.jpg",
+    socialPlatformLink: "http://github.com",
+    name: "Kaustav Chatterjee",
+    designation: "Chief business Officer",
+  },
+  {
+    icon: FaLinkedinIn,
+    imageAlt: "Alt text",
+    imageSrc: "/portrait-1.jpg",
+    socialPlatformLink: "http://github.com",
+    name: "Rohit Sarkel",
+    designation: "Digital Marketing Manager",
   },
 ];
 

@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
+import { TypedMetaOptions } from "@/lib/storybook/types";
 import { Button } from "@/ui/button";
 
-const meta: Meta<typeof Button> = {
+const meta: Meta<typeof Button> & TypedMetaOptions = {
   component: Button,
   parameters: {
     layout: "centered",
@@ -9,6 +10,7 @@ const meta: Meta<typeof Button> = {
   args: {
     children: "Sample text",
   },
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -19,8 +21,8 @@ export const DefaultButtonStory: Story = {
   args: {},
 };
 
-export const DestructiveButtonStory: Story = {
-  args: { variant: "destructive" },
+export const SecondaryButtonStory: Story = {
+  args: { variant: "secondary" },
 };
 
 export const SuccessButtonStory: Story = {
@@ -31,12 +33,12 @@ export const WarningButtonStory: Story = {
   args: { variant: "warning" },
 };
 
-export const OutlineButtonStory: Story = {
-  args: { variant: "outline" },
+export const DestructiveButtonStory: Story = {
+  args: { variant: "destructive" },
 };
 
-export const SecondaryButtonStory: Story = {
-  args: { variant: "secondary" },
+export const OutlineButtonStory: Story = {
+  args: { variant: "outline" },
 };
 
 export const GhostButtonStory: Story = {

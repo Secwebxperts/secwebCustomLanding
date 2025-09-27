@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
+import { TypedMetaOptions } from "@/lib/storybook/types";
 import {
   Accordion,
   AccordionContent,
@@ -7,72 +8,102 @@ import {
 } from "@/ui/accordion";
 import { cn } from "@/utils/cn";
 
-function AccordionDemo() {
+const accordionData = [
+  {
+    question: "What do I need to get started?",
+    answer: [
+      "To get started, simply share your project details and goals with us. We'll guide you through the process and provide the tools and support needed to bring your vision to life.",
+    ],
+  },
+  {
+    question: "What kind of customization is available?",
+    answer: [
+      "We offer full customization options, including layout changes, color schemes, typography, and content sections to align with your brand. ",
+    ],
+  },
+  {
+    question: "How easy is it to edit for beginners?",
+    answer: [
+      "Our platform is designed with beginners in mind, offering an intuitive drag-and-drop interface that makes editing simple and straightforward. No coding skills required—just customize and go!",
+    ],
+  },
+  {
+    question: "Let me know more about moneyback guarantee?",
+    answer: [
+      "Our money-back guarantee ensures peace of mind by offering a full refund if you’re not satisfied with the final product within a specified time frame.",
+    ],
+  },
+];
+
+function AccordionDemo({
+  collapsible,
+  type,
+}: {
+  type: "single" | "multiple";
+  collapsible: boolean;
+}) {
   return (
-    <Accordion
-      type="single"
-      collapsible
-      defaultValue="item-1"
-      className={cn(`w-[70vw]`)}
-    >
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Product Information</AccordionTrigger>
-        <AccordionContent className="flex flex-col gap-4 text-balance">
-          <p>
-            Our flagship product combines cutting-edge technology with sleek
-            design. Built with premium materials, it offers unparalleled
-            performance and reliability.
-          </p>
-          <p>
-            Key features include advanced processing capabilities, and an
-            intuitive user interface designed for both beginners and experts.
-          </p>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Shipping Details</AccordionTrigger>
-        <AccordionContent className="flex flex-col gap-4 text-balance">
-          <p>
-            We offer worldwide shipping through trusted courier partners.
-            Standard delivery takes 3-5 business days, while express shipping
-            ensures delivery within 1-2 business days.
-          </p>
-          <p>
-            All orders are carefully packaged and fully insured. Track your
-            shipment in real-time through our dedicated tracking portal.
-          </p>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>Return Policy</AccordionTrigger>
-        <AccordionContent className="flex flex-col gap-4 text-balance">
-          <p>
-            We stand behind our products with a comprehensive 30-day return
-            policy. If you&apos;re not completely satisfied, simply return the
-            item in its original condition.
-          </p>
-          <p>
-            Our hassle-free return process includes free return shipping and
-            full refunds processed within 48 hours of receiving the returned
-            item.
-          </p>
-        </AccordionContent>
-      </AccordionItem>
+    <Accordion type={type} collapsible={collapsible} className={cn(`w-[70vw]`)}>
+      {accordionData.map(({ answer, question }) => {
+        return (
+          <AccordionItem value={question} key={question}>
+            <AccordionTrigger>{question}</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              {answer.map((ans) => (
+                <p key={ans}>{ans}</p>
+              ))}
+            </AccordionContent>
+          </AccordionItem>
+        );
+      })}
     </Accordion>
   );
 }
 
-const meta: Meta<typeof AccordionDemo> = {
+const meta: Meta<typeof AccordionDemo> & TypedMetaOptions = {
   component: AccordionDemo,
   parameters: {
     layout: "centered",
   },
+  args: {
+    type: "single",
+    collapsible: true,
+  },
+  argTypes: {
+    type: {
+      control: "select",
+      options: ["single", "multiple"],
+    },
+  },
+  tags: ["autodocs"],
+  render: ({ collapsible, type }) => (
+    <Accordion type={type} collapsible={collapsible} className={cn(`w-[70vw]`)}>
+      {accordionData.map(({ answer, question }) => {
+        return (
+          <AccordionItem value={question} key={question}>
+            <AccordionTrigger>{question}</AccordionTrigger>
+            <AccordionContent className="flex flex-col gap-4 text-balance">
+              {answer.map((ans) => (
+                <p key={ans}>{ans}</p>
+              ))}
+            </AccordionContent>
+          </AccordionItem>
+        );
+      })}
+    </Accordion>
+  ),
 };
 
 export default meta;
 
 type Story = StoryObj<typeof AccordionDemo>;
 
-export const Story: Story = {
+export const SingleOpenAccordion: Story = {
   args: {},
+};
+
+export const MultipleOpenAccordion: Story = {
+  args: {
+    type: "multiple",
+  },
 };

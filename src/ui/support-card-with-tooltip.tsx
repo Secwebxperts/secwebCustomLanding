@@ -20,6 +20,20 @@ const SupportCardWithTooltipContext = createContext<{
   isActive?: boolean;
 } | null>(null);
 
+function useTooltip() {
+  const supportCardWithTooltipContextValue = useContext(
+    SupportCardWithTooltipContext
+  );
+
+  if (!supportCardWithTooltipContextValue) {
+    throw new Error(
+      '"TooltipContent" need to be wraped with "SupportCardWithTooltip"'
+    );
+  }
+
+  return supportCardWithTooltipContextValue;
+}
+
 const tooltipStateVariants: Variants = {
   unhovered: {
     scale: 0,
@@ -99,15 +113,7 @@ function CardImage({
 }
 
 function TooltipContent({ ...props }: ComponentProps<typeof MotionDiv>) {
-  const supportCardWithTooltipContextValue = useContext(
-    SupportCardWithTooltipContext
-  );
-
-  if (!supportCardWithTooltipContextValue) {
-    throw new Error(
-      '"TooltipContent" need to be wraped with "SupportCardWithTooltip"'
-    );
-  }
+  const supportCardWithTooltipContextValue = useTooltip();
 
   const { animationScope, isActive } = supportCardWithTooltipContextValue;
 
