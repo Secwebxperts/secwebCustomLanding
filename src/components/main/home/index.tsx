@@ -153,20 +153,22 @@ export function HeroSection({ ...props }: ComponentProps<"section">) {
               <span className={cn(`pr-3`)}>Next-Gen AI Studio</span>
             </div>
             <h1 className={cn(`text-5xl leading-20`)}>
-              AI-Driven Success Redefining the Future.
+              Websites That Impress, Engage & Convert!
             </h1>
             <p className={cn(`text-lg`)}>
-              Creating latest solutions that redefine innovation. Stay ahead
-              with AI-powered technology for the future.
+              Custom, high-performance websites designed to turn visitors into
+              customers.
             </p>
+            <Button>Book An Appointment</Button>
           </AppearFromBelowDiv>
-          <AppearFromBelowDiv
+
+          {/* <AppearFromBelowDiv
             className={cn(
               `my-8 w-full max-w-140 rounded-lg bg-bnw-950 p-8 pt-16`
             )}
           >
             <ContactUsForm />
-          </AppearFromBelowDiv>
+          </AppearFromBelowDiv> */}
         </div>
 
         <div
@@ -183,6 +185,25 @@ export function HeroSection({ ...props }: ComponentProps<"section">) {
           ></div>
         </div>
       </div>
+
+      <AppearFromBelowDiv className={cn(`my-16 px-10 md:px-20 lg:px-30`)}>
+        <p className={cn(`pb-6 text-center text-xl`)}>Teams Who Trusted Us</p>
+
+        <AutoScrollCarousel opts={{ loop: true }}>
+          <CarouselContent>
+            {heroSection_trustedBy.map(({ companyName, icon }) => {
+              return (
+                <CarouselItem key={companyName} className={cn(`max-w-max`)}>
+                  <span className={cn(`flex items-center gap-3 pr-10`)}>
+                    <span className={cn(`text-4xl`)}>{icon({})}</span>
+                    <span className={cn(`text-xl`)}>{companyName}</span>
+                  </span>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+        </AutoScrollCarousel>
+      </AppearFromBelowDiv>
 
       <div
         className={cn(
@@ -221,11 +242,12 @@ export function HeroSection({ ...props }: ComponentProps<"section">) {
         </div>
 
         <div className={cn(`flex max-w-120 flex-col justify-center gap-4`)}>
-          <h2 className={cn(`text-4xl font-semibold`)}>Easier & Smarter</h2>
+          <h2 className={cn(`text-4xl font-semibold`)}>
+            Frustrated with a Website That Doesn’t Work for You?
+          </h2>
 
           <p className={cn(`text-lg text-bnw-500`)}>
-            This allows us to identify investment opportunities that maximize
-            returns for our clients.
+            Frustrated with a Website That Doesn’t Work for You?
           </p>
 
           <div>
@@ -242,27 +264,6 @@ export function HeroSection({ ...props }: ComponentProps<"section">) {
           </div>
         </div>
       </div>
-
-      <AppearFromBelowDiv className={cn(`my-16 px-10 md:px-20 lg:px-30`)}>
-        <p className={cn(`pb-6 text-center text-xl`)}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
-
-        <AutoScrollCarousel opts={{ loop: true }}>
-          <CarouselContent>
-            {heroSection_trustedBy.map(({ companyName, icon }) => {
-              return (
-                <CarouselItem key={companyName} className={cn(`max-w-max`)}>
-                  <span className={cn(`flex items-center gap-3 pr-10`)}>
-                    <span className={cn(`text-4xl`)}>{icon({})}</span>
-                    <span className={cn(`text-xl`)}>{companyName}</span>
-                  </span>
-                </CarouselItem>
-              );
-            })}
-          </CarouselContent>
-        </AutoScrollCarousel>
-      </AppearFromBelowDiv>
     </section>
   );
 }
@@ -290,9 +291,10 @@ export function AboutUs({ ...props }: ComponentProps<"section">) {
           )}
         >
           <span>
-            Built on creativity, collaboration, and top excellence, SYNC is a
-            dynamic team of industry experts committed to achieving exceptional
-            great results...
+            Rooted in creativity, powered by technology, and defined by
+            excellence, SecWebXperts is a team of innovators committed to
+            crafting websites that inspire trust, drive growth, and deliver
+            lasting impact.
           </span>
         </AppearFromBelowH2>
 
@@ -337,7 +339,7 @@ export function Features({ ...props }: ComponentProps<"section">) {
               <BadgeIcon>
                 <IoFlameOutline />
               </BadgeIcon>
-              <BadgeText>Features</BadgeText>
+              <BadgeText>Technologies</BadgeText>
             </Badge>
           </div>
 
@@ -346,7 +348,7 @@ export function Features({ ...props }: ComponentProps<"section">) {
               `text-3xl leading-10 *:block md:text-4xl md:leading-12 lg:text-5xl lg:leading-16`
             )}
           >
-            <span>Packed with Innovation.</span>
+            <span>Modern Tech for Smarter Websites</span>
           </AppearFromBelowH2>
 
           <AppearFromBelowP
@@ -354,8 +356,8 @@ export function Features({ ...props }: ComponentProps<"section">) {
               `max-w-100 font-medium text-bnw-500 lg:max-w-120 lg:text-lg`
             )}
           >
-            Nubien is packed with cutting-edge features designed to elevate your
-            agency or portfolio.
+            Great design meets powerful tech; our tools ensure your website
+            never misses a beat.
           </AppearFromBelowP>
 
           <Button>Book an Appointment</Button>
@@ -378,10 +380,11 @@ export function Features({ ...props }: ComponentProps<"section">) {
             <FeatureCardIcon>
               <FaLayerGroup />
             </FeatureCardIcon>
-            <FeatureCardHeading>Lorem ipsum dolor</FeatureCardHeading>
+            <FeatureCardHeading>
+              Optimized for Engagement & Conversions
+            </FeatureCardHeading>
             <FeatureCardDescription>
-              Corrupti, perferendis sapiente harum nesciunt incidunt
-              reprehenderit a modi
+              Keep visitors hooked
             </FeatureCardDescription>
             <FeatureCardContent></FeatureCardContent>
           </MotionFeatureCard>
@@ -390,11 +393,10 @@ export function Features({ ...props }: ComponentProps<"section">) {
             <FeatureCardIcon>
               <FaFingerprint />
             </FeatureCardIcon>
-            <FeatureCardHeading>Lorem ipsum dolor</FeatureCardHeading>
-            <FeatureCardDescription>
-              Corrupti, perferendis sapiente harum nesciunt incidunt
-              reprehenderit a modi
-            </FeatureCardDescription>
+            <FeatureCardHeading>
+              Fast, SEO Friendly & Mobile Ready
+            </FeatureCardHeading>
+            <FeatureCardDescription>Speed meets style</FeatureCardDescription>
             <FeatureCardContent></FeatureCardContent>
           </MotionFeatureCard>
 
@@ -402,10 +404,9 @@ export function Features({ ...props }: ComponentProps<"section">) {
             <FeatureCardIcon>
               <FaHeadphonesAlt />
             </FeatureCardIcon>
-            <FeatureCardHeading>Lorem ipsum dolor</FeatureCardHeading>
+            <FeatureCardHeading>Secure & Scalable Solutions</FeatureCardHeading>
             <FeatureCardDescription>
-              Corrupti, perferendis sapiente harum nesciunt incidunt
-              reprehenderit a modi
+              Your website, future-proofed
             </FeatureCardDescription>
             <FeatureCardContent></FeatureCardContent>
           </MotionFeatureCard>
@@ -457,18 +458,21 @@ export function Services({ ...props }: ComponentProps<"section">) {
             `text-3xl leading-10 *:block md:text-4xl md:leading-12 lg:text-5xl lg:leading-16`
           )}
         >
-          <span>AI-Powered Services for </span>
-          <span className={cn(`text-bnw-500`)}>Future-Driven Businesses.</span>
+          <span>Crafting Websites That Don’t Just Exist - They Perform</span>
+          <span className={cn(`text-bnw-500`)}>
+            We create digital platforms that captivate audiences, accelerate
+            growth, and evolve seamlessly with your brand
+          </span>
         </AppearFromBelowH2>
 
-        <AppearFromBelowP
+        {/* <AppearFromBelowP
           className={cn(
             `max-w-100 font-medium text-bnw-500 lg:max-w-120 lg:text-lg`
           )}
         >
           Our cutting-edge AI solutions are designed to transform businesses,
           enhance efficiency, and drive innovation.
-        </AppearFromBelowP>
+        </AppearFromBelowP> */}
       </div>
 
       <div className={cn(`px-10 py-20 md:px-20 lg:px-30`)}>
@@ -553,18 +557,22 @@ export function Portfolio({ ...props }: ComponentProps<"section">) {
             `text-3xl leading-10 *:block md:text-4xl md:leading-12 lg:text-5xl lg:leading-16`
           )}
         >
-          <span>Showcasing Your Best </span>
-          <span className={cn(`text-bnw-500`)}>Work with Pure Precision.</span>
+          <span>Impact Over Hype</span>
+          <span className={cn(`text-bnw-500`)}>
+            {" "}
+            Minimal surfaces, rigorous systems, and fast experiences that stand
+            out without shouting.
+          </span>
         </AppearFromBelowH2>
 
-        <AppearFromBelowP
+        {/* <AppearFromBelowP
           className={cn(
             `max-w-100 font-medium text-bnw-500 lg:max-w-120 lg:text-lg`
           )}
         >
           A portfolio is more than just projects—it&apos;s your story, vision,
           and expertise. Reboot ensures your work stands out with a rank.
-        </AppearFromBelowP>
+        </AppearFromBelowP> */}
 
         <Button>Book A 15 min Call</Button>
       </div>
@@ -632,18 +640,21 @@ export function Support247({ ...props }: ComponentProps<"section">) {
             `text-3xl leading-10 *:block md:text-4xl md:leading-12 lg:text-5xl lg:leading-16`
           )}
         >
-          <span>Here When You </span>
-          <span className={cn(`text-bnw-500`)}>Need Us Most Important.</span>
+          <span>Always On. Always Accountable.</span>
+          <span className={cn(`text-bnw-500`)}>
+            Dedicated experts who respond fast, resolve precisely, and stay with
+            the project long after launch.
+          </span>
         </AppearFromBelowH2>
 
-        <AppearFromBelowP
+        {/* <AppearFromBelowP
           className={cn(
             `max-w-100 font-medium text-bnw-500 lg:max-w-120 lg:text-lg`
           )}
         >
           Nubien comes with dedicated support to help you launch and maintain
           your site without friction.
-        </AppearFromBelowP>
+        </AppearFromBelowP> */}
 
         <Button>Book An Appointment</Button>
       </div>
@@ -814,18 +825,21 @@ export function OurProcess({ ...props }: ComponentProps<"section">) {
               `text-3xl leading-10 *:block md:text-4xl md:leading-12 lg:text-5xl lg:leading-16`
             )}
           >
-            <span>Our Proven Process </span>
-            <span className={cn(`text-bnw-500`)}>for AI-Driven Success</span>
+            <span>Roadmap to Real-World Resilience</span>
+            <span className={cn(`text-bnw-500`)}>
+              Align fast, ship in tight sprints, and validate with real‑world
+              metrics—so launches are safer, faster, and measurably better.
+            </span>
           </AppearFromBelowH2>
 
-          <AppearFromBelowP
+          {/* <AppearFromBelowP
             className={cn(
               `max-w-100 font-medium text-bnw-500 lg:max-w-120 lg:text-lg`
             )}
           >
             With a focus on innovation and efficiency, we help you stay ahead in
             an ever-evolving digital landscape.
-          </AppearFromBelowP>
+          </AppearFromBelowP> */}
         </div>
       </div>
 
@@ -874,18 +888,21 @@ export function OurTeam({ ...props }: ComponentProps<"section">) {
               `text-3xl leading-10 *:block md:text-4xl md:leading-12 lg:text-5xl lg:leading-16`
             )}
           >
-            <span>Meet the Team Making </span>
-            <span className={cn(`text-bnw-500`)}>Things Happen Every Day</span>
+            <span>Experts You Can Deploy</span>
+            <span className={cn(`text-bnw-500`)}>
+              Minds who obsess over reliability, performance, and the details
+              that keep launches calm and scalable.
+            </span>
           </AppearFromBelowH2>
 
-          <AppearFromBelowP
+          {/* <AppearFromBelowP
             className={cn(
               `max-w-100 font-medium text-bnw-500 lg:max-w-120 lg:text-lg`
             )}
           >
             Our team is made up of passionate professionals who bring their
             expertise and creativity to every project.
-          </AppearFromBelowP>
+          </AppearFromBelowP> */}
         </div>
 
         <div
@@ -958,20 +975,21 @@ export function Testimonials({ ...props }: ComponentProps<"section">) {
               `text-3xl leading-10 *:block md:text-4xl md:leading-12 lg:text-5xl lg:leading-16`
             )}
           >
-            <span>What Our Clients Say </span>
+            <span>Results You Can Quote</span>
             <span className={cn(`text-bnw-500`)}>
-              About Reboot&apos;s Excellence
+              Unfiltered stories on speed, security, and outcomes—told by the
+              people who trusted the process.
             </span>
           </AppearFromBelowH2>
 
-          <AppearFromBelowP
+          {/* <AppearFromBelowP
             className={cn(
               `max-w-100 font-medium text-bnw-500 lg:max-w-120 lg:text-lg`
             )}
           >
             Hear from our happy clients! See how we&apos;ve helped them achieve
             their goals and create lasting impact.
-          </AppearFromBelowP>
+          </AppearFromBelowP> */}
 
           <Button>Book An Appointment</Button>
         </div>
@@ -1022,18 +1040,21 @@ export function FAQ({ ...props }: ComponentProps<"section">) {
                 `text-3xl leading-10 *:block md:text-4xl md:leading-12 lg:text-5xl lg:leading-16`
               )}
             >
-              <span>Frequently </span>
-              <span className={cn(`text-bnw-500`)}>Asked Questions</span>
+              <span>Frequently Asked Questions</span>
+              <span className={cn(`text-bnw-500`)}>
+                Clear, concise responses to the questions asked most, so
+                decisions move faster.
+              </span>
             </AppearFromBelowH2>
 
-            <AppearFromBelowP
+            {/* <AppearFromBelowP
               className={cn(
                 `max-w-100 font-medium text-bnw-500 lg:max-w-120 lg:text-lg`
               )}
             >
               Have questions? Our FAQ section has you covered with quick answers
               to the most common inquiries.
-            </AppearFromBelowP>
+            </AppearFromBelowP> */}
           </div>
 
           <div className={cn(`@4xl:col-span-2`)}>
@@ -1096,7 +1117,7 @@ export function BecomePartOfUs({ ...props }: ComponentProps<"section">) {
               <BadgeIcon>
                 <GoQuestion />
               </BadgeIcon>
-              <BadgeText>Become part of us</BadgeText>
+              <BadgeText>Partner with Us</BadgeText>
             </Badge>
           </div>
 
@@ -1111,14 +1132,15 @@ export function BecomePartOfUs({ ...props }: ComponentProps<"section">) {
             </span>
           </h2>
 
-          <p
+          <h2
             className={cn(
               `max-w-100 font-medium text-bnw-500 lg:max-w-120 lg:text-lg`
             )}
           >
-            Ready to take the next step? Join us now and start transforming your
-            vision into reality with expert support.
-          </p>
+            Ready to move from idea to impact? Start a sprint with experts who
+            align fast, harden every release, and deliver results you can
+            measure.
+          </h2>
 
           <div
             aria-hidden

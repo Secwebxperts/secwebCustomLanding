@@ -48,23 +48,24 @@ export const features_footerCard: {
   cardDetails: string;
 }[] = [
   {
-    cardDetails: "Instant insights for faster decision-making.",
-    cardHeading: "Real-Time Data",
+    cardDetails: "Robust protection with SSL, encryption, and secure coding.",
+    cardHeading: "Security First",
     icon: FaAccessibleIcon,
   },
   {
-    cardDetails: "AI-powered image and video recognition.",
-    cardHeading: "Vision Capabilities",
+    cardDetails: "Websites that adapt perfectly across all devices.",
+    cardHeading: "Responsive Design",
     icon: FaAccessibleIcon,
   },
   {
-    cardDetails: "Smart design that enhances user experience.",
-    cardHeading: "Optimized UX/UI",
+    cardDetails:
+      "Tailored designs for intuitive navigation and engaging interfaces.",
+    cardHeading: "Custom UI/UX",
     icon: FaAccessibleIcon,
   },
   {
-    cardDetails: "Make data-driven decisions with AI insights.",
-    cardHeading: "Predictive Analytics",
+    cardDetails: "Seamless connectivity with third-party tools and platforms",
+    cardHeading: "API Integrations",
     icon: FaAccessibleIcon,
   },
 ];
@@ -78,24 +79,24 @@ export const service_cardData: {
 }[] = [
   {
     cardContent:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, culpa.",
-    cardHeading: "Lorem, ipsum.",
+      "We design and develop websites built uniquely for your business goals. From UI/UX to performance, every element is crafted to deliver a seamless and impactful user journey.",
+    cardHeading: "Custom Website Development",
     cardSubheading: "Lorem ipsum dolor sit.",
     cardImage: "/portrait-1.jpg",
     cardIcon: FaHeadphonesAlt,
   },
   {
     cardContent:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, culpa.",
-    cardHeading: "consectetur adipis",
+      "Scalable, secure, and conversion-focused online stores. We create e-commerce platforms that enhance customer experience and drive sales with smooth navigation and optimized checkout flows.",
+    cardHeading: "E-commerce Website Development",
     cardSubheading: "consectetur adipisicing elit.",
     cardImage: "/portrait-2.jpg",
     cardIcon: FaHeadphonesAlt,
   },
   {
     cardContent:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, culpa.",
-    cardHeading: "Eveniet fugit",
+      "Powerful, customizable, and easy-to-manage websites built on WordPress. From business sites to blogs, we deliver fast, SEO-ready platforms with hassle-free content management.",
+    cardHeading: "WordPress Development",
     cardSubheading: "Eveniet fugit expedita numquam",
     cardImage: "/portrait-3.jpg",
     cardIcon: FaHeadphonesAlt,
@@ -103,11 +104,11 @@ export const service_cardData: {
 ];
 
 export const service_tagData: { tagIcon: IconType; tagText: string }[] = [
-  { tagIcon: FaAccessibleIcon, tagText: "Lorem ipsum" },
-  { tagIcon: FaAccusoft, tagText: "Dolor sit amet" },
-  { tagIcon: FaAddressBook, tagText: "consectetur adipisicing" },
-  { tagIcon: FaAdjust, tagText: "Ad saepe deserunt" },
-  { tagIcon: FaAddressCard, tagText: "earum aut delectus" },
+  { tagIcon: FaAccessibleIcon, tagText: "Motion UI & Micro-Animations" },
+  { tagIcon: FaAccusoft, tagText: "API-First Design" },
+  { tagIcon: FaAddressBook, tagText: "Accessibility Enhancement" },
+  { tagIcon: FaAdjust, tagText: "24/7 Support & Maintenance" },
+  { tagIcon: FaAddressCard, tagText: "AI-Content Generation" },
 ];
 
 export const portfolio_cardRowData: {
@@ -160,17 +161,20 @@ export const support247_informationData: {
   {
     icons: FaHeadphonesAlt,
     infoTitle: "Fast Responses",
-    infoDescription: "Get timely answers to your questions.",
+    infoDescription:
+      "Real people and smart automation triage messages within minutes, not days.",
   },
   {
     icons: FaHeadphonesAlt,
     infoTitle: "Expert Guidance",
-    infoDescription: "Our team understands both design and tech.",
+    infoDescription:
+      "Designers, developers, and marketers collaborate to fix issues and improve outcomes",
   },
   {
     icons: FaHeadphonesAlt,
-    infoTitle: "Continuous Help",
-    infoDescription: "Support doesn't stop after launch.",
+    infoTitle: "Clear SLAs",
+    infoDescription:
+      "Response and resolution times defined upfront for transparent expectations.",
   },
 ];
 
@@ -181,20 +185,20 @@ export const ourProcess_data: {
 }[] = [
   {
     description:
-      "We analyze your goals, challenges, and vision to craft a tailored AI strategy.",
-    heading: "Discover Insights",
+      "Set clear goals, scope, and success metrics, then audit stack, access, and risks to establish a clean baseline for work and governance.",
+    heading: "Align",
     icons: FaHeadphonesAlt,
   },
   {
     description:
-      "Our experts design and build cutting-edge AI solutions that drive results.",
-    heading: "Develop Solutions",
+      "Ship in short, testable sprints with staging previews, code reviews, and feature flags—design, development, and integrations moving in lockstep.",
+    heading: "Build",
     icons: FaHeadphonesAlt,
   },
   {
     description:
-      "We implement, optimize, and scale your AI-powered success for long-term impact.",
-    heading: "Deploy Success",
+      "Validate performance, accessibility, and security, launch with monitoring and rollback ready, then iterate on real metrics for continuous gains.",
+    heading: "Prove",
     icons: FaHeadphonesAlt,
   },
 ];
@@ -339,27 +343,28 @@ export const testimonial_data: TestimonialCardProps[] = [
 
 export const faq_data: { question: string; answer: string[] }[] = [
   {
-    question: "What do I need to get started?",
+    question: "What industries do you specialize in for web development?",
     answer: [
-      "To get started, simply share your project details and goals with us. We'll guide you through the process and provide the tools and support needed to bring your vision to life.",
+      "We build a wide range of websites including corporate websites, eCommerce platforms, portfolio sites, blogs, and custom web applications tailored to your business needs.",
     ],
   },
   {
-    question: "What kind of customization is available?",
+    question: "Do you offer post-development support and scalability options?",
     answer: [
-      "We offer full customization options, including layout changes, color schemes, typography, and content sections to align with your brand. ",
+      "Yes, we offer ongoing support, security updates, performance optimization, and content management to ensure your website runs smoothly post-launch.",
     ],
   },
   {
-    question: "How easy is it to edit for beginners?",
+    question: "Will my website be mobile-friendly and SEO-optimized?",
     answer: [
-      "Our platform is designed with beginners in mind, offering an intuitive drag-and-drop interface that makes editing simple and straightforward. No coding skills required—just customize and go!",
+      "Absolutely. We ensure all websites are responsive across devices and optimized with SEO best practices to improve visibility and performance on search engines.",
     ],
   },
   {
-    question: "Let me know more about moneyback guarantee?",
+    question:
+      "Can you redesign my existing website instead of building a new one?",
     answer: [
-      "Our money-back guarantee ensures peace of mind by offering a full refund if you’re not satisfied with the final product within a specified time frame.",
+      "Yes, we can revamp your current website with a modern design, better functionality, and improved performance without starting from scratch.",
     ],
   },
 ];
