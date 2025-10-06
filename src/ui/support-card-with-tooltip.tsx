@@ -15,10 +15,24 @@ import React, {
 
 type UseAnimateScope = ReturnType<typeof useAnimate>[0];
 
-const CardWithTooltipContext = createContext<{
+const SupportCardWithTooltipContext = createContext<{
   animationScope: UseAnimateScope;
   isActive?: boolean;
 } | null>(null);
+
+function useTooltip() {
+  const supportCardWithTooltipContextValue = useContext(
+    SupportCardWithTooltipContext
+  );
+
+  if (!supportCardWithTooltipContextValue) {
+    throw new Error(
+      '"TooltipContent" need to be wraped with "SupportCardWithTooltip"'
+    );
+  }
+
+  return supportCardWithTooltipContextValue;
+}
 
 const tooltipStateVariants: Variants = {
   unhovered: {
@@ -33,14 +47,14 @@ const tooltipStateVariants: Variants = {
   },
 };
 
-type CardWithTooltipProps = {
+type SupportCardWithTooltipProps = {
   isActive?: boolean;
 };
 
-function CardWithTooltip({
+function SupportCardWithTooltip({
   isActive,
   ...props
-}: CardWithTooltipProps & ComponentProps<"div">) {
+}: SupportCardWithTooltipProps & ComponentProps<"div">) {
   const [animationScope, animation] = useAnimate();
 
   const animationForHover = useCallback(() => {
@@ -54,8 +68,12 @@ function CardWithTooltip({
   }, []);
 
   return (
-    <CardWithTooltipContext value={{ isActive, animationScope }}>
-      <div {...props} className={cn(`isolate h-50 w-50`, props.className)}>
+    <SupportCardWithTooltipContext value={{ isActive, animationScope }}>
+      <div
+        data-slot={`support-card-with-tooltip`}
+        {...props}
+        className={cn(`isolate h-50 w-50`, props.className)}
+      >
         <MotionDiv
           onMouseEnter={animationForHover}
           onMouseLeave={animationForUnHover}
@@ -64,7 +82,7 @@ function CardWithTooltip({
           {props.children}
         </MotionDiv>
       </div>
-    </CardWithTooltipContext>
+    </SupportCardWithTooltipContext>
   );
 }
 
@@ -77,6 +95,7 @@ function CardImage({
 }: CardImageProps & ComponentProps<"div">) {
   return (
     <div
+      data-slot={`card-image`}
       {...props}
       className={cn(
         `relative h-full w-full overflow-clip rounded-2xl ring-1 ring-bnw-900 ring-offset-4 ring-offset-black`
@@ -93,54 +112,33 @@ function CardImage({
   );
 }
 
-type TooltipContentProps = {
-  tooltipBackground?: "pink" | "purple" | "indigo" | "blue";
-};
+function TooltipContent({ ...props }: ComponentProps<typeof MotionDiv>) {
+  const supportCardWithTooltipContextValue = useTooltip();
 
-function TooltipContent({
-  tooltipBackground,
-  ...props
-}: TooltipContentProps & ComponentProps<typeof MotionDiv>) {
-  const cardWithTooltipContextValue = useContext(CardWithTooltipContext);
-
-  if (!cardWithTooltipContextValue) {
-    throw new Error(
-      '"TooltipContent" need to be wraped with "CardWithTooltip"'
-    );
-  }
-
-  const { animationScope, isActive } = cardWithTooltipContextValue;
+  const { animationScope, isActive } = supportCardWithTooltipContextValue;
 
   return (
     <MotionDiv
+      data-slot={`tooltip-content`}
       {...props}
       ref={animationScope as unknown as RefObject<HTMLDivElement>}
       initial={"unhovered"}
       animate={isActive && "hovered"}
       variants={tooltipStateVariants}
       className={cn(
-        `[--tooltip-bg:var(--color-primary-500)]`,
-        `absolute left-1/2 -z-1 w-full max-w-max -translate-x-1/2 rounded-xl bg-(--tooltip-bg) px-4 py-2`,
-        {
-          "[--tooltip-bg:var(--color-pink-500)]": tooltipBackground === "pink",
-          "[--tooltip-bg:var(--color-purple-500)]":
-            tooltipBackground === "purple",
-          "[--tooltip-bg:var(--color-indigo-500)]":
-            tooltipBackground === "indigo",
-          "[--tooltip-bg:var(--color-blue-500)]": tooltipBackground === "blue",
-        },
+        `absolute left-1/2 isolate -z-1 w-full max-w-max -translate-x-1/2 rounded-xl bg-primary-500 px-4 py-2`,
         props.className
       )}
     >
-      {props.children as ReactNode}
+      <div className={cn(`line-clamp-3`)}>{props.children as ReactNode}</div>
       <div
         className={cn(
-          `absolute -bottom-1 left-5 size-4 rotate-45 bg-(--tooltip-bg)`
+          `absolute -bottom-1 left-5 -z-1 size-4 rotate-45 bg-inherit`
         )}
       />
     </MotionDiv>
   );
 }
 
-export type { CardWithTooltipProps, TooltipContentProps, CardImageProps };
-export { TooltipContent, CardImage, CardWithTooltip };
+export type { SupportCardWithTooltipProps, CardImageProps };
+export { TooltipContent, CardImage, SupportCardWithTooltip };

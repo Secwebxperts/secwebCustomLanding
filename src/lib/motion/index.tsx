@@ -27,6 +27,8 @@ export function MotionH3({ ...props }: ComponentProps<typeof motion.h3>) {
   return <motion.span {...props} />;
 }
 
+const createMotionComponent = motion.create;
+
 export type { Variants };
 
-export { stagger };
+export { stagger, createMotionComponent };

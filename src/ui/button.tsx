@@ -11,16 +11,17 @@ const buttonVariants = cva(
       variant: {
         default:
           "border-2 border-primary-500 bg-gradient-to-b from-primary-600 to-primary-400 text-white hover:from-primary-700 hover:to-primary-500 focus-visible:ring-primary-500 active:from-primary-500 active:to-primary-700",
-        destructive:
-          "border-2 border-red-500 bg-gradient-to-b from-red-600 to-red-400 text-white hover:from-red-700 hover:to-red-500 focus-visible:ring-red-500 active:from-red-500 active:to-red-700",
+        secondary:
+          "border-2 border-indigo-500 bg-gradient-to-b from-indigo-600 to-indigo-400 text-white hover:from-indigo-700 hover:to-indigo-500 focus-visible:ring-indigo-500 active:from-indigo-500 active:to-indigo-700",
         success:
           "border-2 border-green-500 bg-gradient-to-b from-green-600 to-green-400 text-white hover:from-green-700 hover:to-green-500 focus-visible:ring-green-500 active:from-green-500 active:to-green-700",
         warning:
           "border-2 border-yellow-500 bg-gradient-to-b from-yellow-600 to-yellow-400 text-white hover:from-yellow-700 hover:to-yellow-500 focus-visible:ring-yellow-500 active:from-yellow-500 active:to-yellow-700",
+        destructive:
+          "border-2 border-red-500 bg-gradient-to-b from-red-600 to-red-400 text-white hover:from-red-700 hover:to-red-500 focus-visible:ring-red-500 active:from-red-500 active:to-red-700",
         outline:
           "border-2 bg-transparent text-white hover:border-primary-500 focus-visible:border-primary-500 focus-visible:ring-primary-500",
-        secondary:
-          "border-2 border-indigo-500 bg-gradient-to-b from-indigo-600 to-indigo-400 text-white hover:from-indigo-700 hover:to-indigo-500 focus-visible:ring-indigo-500 active:from-indigo-500 active:to-indigo-700",
+
         ghost:
           "hover:bg-bnw-900 focus-visible:bg-bnw-900 focus-visible:ring-bnw-900 active:bg-bnw-800",
         link: "underline-offset-4 hover:underline",

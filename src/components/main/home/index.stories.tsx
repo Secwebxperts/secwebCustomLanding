@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import HomePageComp, {
+  HeroSection,
   AboutUs,
   FAQ,
   Features,
@@ -9,6 +10,7 @@ import HomePageComp, {
   Support247,
   Testimonials,
   OurTeam,
+  BecomePartOfUs,
 } from "@/components/main/home";
 
 const meta: Meta<typeof HomePageComp> = {
@@ -22,6 +24,12 @@ type Story = StoryObj<typeof HomePageComp>;
 export const HomePageCompStory: Story = {
   name: "Home Page",
   args: {},
+};
+
+export const HeroSection_Story: Story = {
+  render: () => {
+    return <HeroSection />;
+  },
 };
 
 export const AboutUs_Story: Story = {
@@ -75,6 +83,12 @@ export const Testimonial_Story: Story = {
 export const FAQ_Story: Story = {
   render: () => {
     return <FAQ />;
+  },
+};
+
+export const BecomePartOfUs_Story: Story = {
+  render: () => {
+    return <BecomePartOfUs />;
   },
 };
 

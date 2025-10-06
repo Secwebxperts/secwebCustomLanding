@@ -4,6 +4,7 @@ import React, { ComponentProps } from "react";
 export function Badge({ ...props }: ComponentProps<"div">) {
   return (
     <div
+      data-slot={`badge`}
       {...props}
       className={cn(
         `relative flex max-w-max items-center gap-4 overflow-clip rounded-full border border-primary-800 bg-bnw-950 bg-gradient-to-b from-bnw-900 to-blue-900/20 p-2 font-extralight`,
@@ -23,6 +24,7 @@ export function Badge({ ...props }: ComponentProps<"div">) {
 export function BadgeIcon({ ...props }: ComponentProps<"div">) {
   return (
     <div
+      data-slot={`badge-icon`}
       {...props}
       className={cn(
         `rounded-full bg-gradient-to-b from-primary-500 to-primary-300 p-2 ring-2 ring-primary-400`,
@@ -33,5 +35,11 @@ export function BadgeIcon({ ...props }: ComponentProps<"div">) {
 }
 
 export function BadgeText({ ...props }: ComponentProps<"div">) {
-  return <div {...props} className={cn(`pr-4`, props.className)} />;
+  return (
+    <div
+      data-slot={`badge-text`}
+      {...props}
+      className={cn(`pr-4`, props.className)}
+    />
+  );
 }
