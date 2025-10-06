@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { TypedMetaOptions } from "@/lib/storybook/types";
 import {
-  FeatureFooterCard,
-  FeatureFooterCardHeading,
-  FeatureFooterCardDetails,
-} from "@/ui/feature-footer-card";
+  TechnologiesFooterCard,
+  TechnologiesFooterCardHeading,
+  TechnologiesFooterCardDetails,
+} from "@/ui/technologies-footer-card";
 import { FaAffiliatetheme, FaAirbnb, FaAlignRight } from "react-icons/fa6";
 
-function FeatureFooterCardDemo({
+function TechnologiesFooterCardDemo({
   icon,
   cardHeding,
   cardDetails,
@@ -17,20 +17,22 @@ function FeatureFooterCardDemo({
   cardDetails: string;
 }) {
   return (
-    <FeatureFooterCard>
-      <FeatureFooterCardHeading>
+    <TechnologiesFooterCard>
+      <TechnologiesFooterCardHeading>
         {icon === "FaAffiliatetheme" && <FaAffiliatetheme />}
         {icon === "FaAirbnb" && <FaAirbnb />}
         {icon === "FaAlignRight" && <FaAlignRight />}
         <span>{cardHeding}</span>
-      </FeatureFooterCardHeading>
-      <FeatureFooterCardDetails>{cardDetails}</FeatureFooterCardDetails>
-    </FeatureFooterCard>
+      </TechnologiesFooterCardHeading>
+      <TechnologiesFooterCardDetails>
+        {cardDetails}
+      </TechnologiesFooterCardDetails>
+    </TechnologiesFooterCard>
   );
 }
 
-const meta: Meta<typeof FeatureFooterCardDemo> & TypedMetaOptions = {
-  component: FeatureFooterCardDemo,
+const meta: Meta<typeof TechnologiesFooterCardDemo> & TypedMetaOptions = {
+  component: TechnologiesFooterCardDemo,
   parameters: {
     layout: "centered",
   },
@@ -48,22 +50,24 @@ const meta: Meta<typeof FeatureFooterCardDemo> & TypedMetaOptions = {
     },
   },
   render: ({ cardDetails, cardHeding, icon }) => (
-    <FeatureFooterCard>
-      <FeatureFooterCardHeading>
+    <TechnologiesFooterCard>
+      <TechnologiesFooterCardHeading>
         {icon === "FaAffiliatetheme" && <FaAffiliatetheme />}
         {icon === "FaAirbnb" && <FaAirbnb />}
         {icon === "FaAlignRight" && <FaAlignRight />}
         <span>{cardHeding}</span>
-      </FeatureFooterCardHeading>
-      <FeatureFooterCardDetails>{cardDetails}</FeatureFooterCardDetails>
-    </FeatureFooterCard>
+      </TechnologiesFooterCardHeading>
+      <TechnologiesFooterCardDetails>
+        {cardDetails}
+      </TechnologiesFooterCardDetails>
+    </TechnologiesFooterCard>
   ),
 };
 
 export default meta;
 
-type Story = StoryObj<typeof FeatureFooterCardDemo>;
+type Story = StoryObj<typeof TechnologiesFooterCardDemo>;
 
-export const FeatureFooterCardDemoStory: Story = {
+export const TechnologiesFooterCardDemoStory: Story = {
   args: {},
 };

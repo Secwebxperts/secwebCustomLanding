@@ -164,7 +164,9 @@ function PortfolioCardImage({
     >
       <div className={cn(`relative size-full`)}>
         <Image
-          className={cn(`absolute h-full w-full object-cover`)}
+          className={cn(
+            `absolute h-full w-full object-cover transition-all group-hover:scale-105`
+          )}
           alt={alt}
           src={src}
           width={100}

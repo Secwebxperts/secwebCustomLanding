@@ -109,7 +109,10 @@ function ServiceCardImage({
     <div
       data-slot={`service-card-image`}
       {...props}
-      className={cn(`h-40 w-full overflow-clip rounded-xl`, props.className)}
+      className={cn(
+        `mt-auto h-40 w-full overflow-clip rounded-xl`,
+        props.className
+      )}
     >
       <div className={cn(`relative h-full w-full`)}>
         <Image

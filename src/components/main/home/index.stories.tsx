@@ -3,7 +3,7 @@ import HomePageComp, {
   HeroSection,
   AboutUs,
   FAQ,
-  Features,
+  Technologies,
   OurProcess,
   Portfolio,
   Services,
@@ -38,9 +38,9 @@ export const AboutUs_Story: Story = {
   },
 };
 
-export const Features_Story: Story = {
+export const Technologiess_Story: Story = {
   render: () => {
-    return <Features />;
+    return <Technologies />;
   },
 };
 

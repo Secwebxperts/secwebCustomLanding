@@ -1,7 +1,7 @@
 import { cn } from "@/utils/cn";
 import React, { ComponentProps } from "react";
 
-function FeatureFooterCard({ ...props }: ComponentProps<"div">) {
+function TechnologiesFooterCard({ ...props }: ComponentProps<"div">) {
   return (
     <div {...props} className={cn(``, props.className)}>
       {props.children}
@@ -9,7 +9,7 @@ function FeatureFooterCard({ ...props }: ComponentProps<"div">) {
   );
 }
 
-function FeatureFooterCardHeading({ ...props }: ComponentProps<"h3">) {
+function TechnologiesFooterCardHeading({ ...props }: ComponentProps<"h3">) {
   return (
     <h3 className={cn(`flex flex-wrap items-center gap-2 text-xl font-medium`)}>
       {props.children}
@@ -17,7 +17,7 @@ function FeatureFooterCardHeading({ ...props }: ComponentProps<"h3">) {
   );
 }
 
-function FeatureFooterCardDetails({ ...props }: ComponentProps<"p">) {
+function TechnologiesFooterCardDetails({ ...props }: ComponentProps<"p">) {
   return (
     <p
       {...props}
@@ -27,7 +27,7 @@ function FeatureFooterCardDetails({ ...props }: ComponentProps<"p">) {
 }
 
 export {
-  FeatureFooterCard,
-  FeatureFooterCardHeading,
-  FeatureFooterCardDetails,
+  TechnologiesFooterCard,
+  TechnologiesFooterCardHeading,
+  TechnologiesFooterCardDetails,
 };

@@ -7,8 +7,8 @@ import {
   stagger,
 } from "@/lib/motion";
 import { Carousel } from "@/ui/carousel";
-import { FeatureCard } from "@/ui/feature-card";
-import { FeatureFooterCard } from "@/ui/feature-footer-card";
+import { TechnologiesCard } from "@/ui/technologies-card";
+import { TechnologiesFooterCard } from "@/ui/technologies-footer-card";
 import { ServiceCard } from "@/ui/service-card";
 import { ServiceTags } from "@/ui/service-tags";
 import TestimonialCard from "@/ui/testimonial-card";
@@ -51,13 +51,13 @@ export function MotionCardWrapper({
   );
 }
 
-const CreatedMotionFeatureCard = createMotionComponent(FeatureCard);
+const CreatedMotionTechnologiesCard = createMotionComponent(TechnologiesCard);
 
-export function MotionFeatureCard({
+export function MotionTechnologiesCard({
   ...props
-}: ComponentProps<typeof CreatedMotionFeatureCard>) {
+}: ComponentProps<typeof CreatedMotionTechnologiesCard>) {
   return (
-    <CreatedMotionFeatureCard
+    <CreatedMotionTechnologiesCard
       {...props}
       variants={cardItemVariants}
       className={cn(``, props.className)}
@@ -65,13 +65,15 @@ export function MotionFeatureCard({
   );
 }
 
-const CreatedMotionFeatureFooterCard = createMotionComponent(FeatureFooterCard);
+const CreatedMotionTechnologiesFooterCard = createMotionComponent(
+  TechnologiesFooterCard
+);
 
-export function MotionFeatureFooterCard({
+export function MotionTechnologiesFooterCard({
   ...props
-}: ComponentProps<typeof CreatedMotionFeatureFooterCard>) {
+}: ComponentProps<typeof CreatedMotionTechnologiesFooterCard>) {
   return (
-    <CreatedMotionFeatureFooterCard
+    <CreatedMotionTechnologiesFooterCard
       {...props}
       variants={cardItemVariants}
       className={cn(``, props.className)}

@@ -20,6 +20,7 @@ export type TFormField = {
   "meeting-time": string;
   "company-name": string;
   "company-location": string;
+  budget: string;
   message: string;
 };
 
@@ -32,6 +33,7 @@ export function ContactUsForm({ ...props }: ComponentProps<"div">) {
       "company-location": "",
       "company-name": "",
       "meeting-time": "",
+      budget: "",
       email: "",
       message: "",
     },
@@ -43,7 +45,11 @@ export function ContactUsForm({ ...props }: ComponentProps<"div">) {
     console.log("error", error);
 
   return (
-    <div {...props} className={cn(`@container w-full`, props.className)}>
+    <div
+      {...props}
+      id="contact-form"
+      className={cn(`@container w-full`, props.className)}
+    >
       <form onSubmit={handleSubmit(onSubmitSuccess, onSubmitError)}>
         <div className={cn(`grid grid-cols-1 gap-4 @md:grid-cols-2`)}>
           <div>
@@ -117,6 +123,18 @@ export function ContactUsForm({ ...props }: ComponentProps<"div">) {
               id="meeting-time"
               placeholder="meeting-time"
               {...register("meeting-time", { required: true })}
+            />
+          </div>
+
+          <div className={cn(`@md:col-span-2`)}>
+            <Label htmlFor="budget">
+              Do you have budget in your mind ? ( Optional )
+            </Label>
+            <Input
+              type="text"
+              id="budget"
+              placeholder="Provide some budget..."
+              {...register("budget", { required: true })}
             />
           </div>
 

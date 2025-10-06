@@ -22,7 +22,7 @@ function TagIcon({ ...props }: ComponentProps<typeof BadgeIcon>) {
     <BadgeIcon
       data-slot={`tag-icon`}
       {...props}
-      className={cn(`p-3`, props.className)}
+      className={cn(`p-2`, props.className)}
     />
   );
 }

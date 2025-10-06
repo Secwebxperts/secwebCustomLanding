@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { TypedMetaOptions } from "@/lib/storybook/types";
 import {
-  FeatureCard,
-  FeatureCardIcon,
-  FeatureCardDescription,
-  FeatureCardHeading,
-  FeatureCardContent,
-} from "@/ui/feature-card";
+  TechnologiesCard,
+  TechnologiesCardIcon,
+  TechnologiesCardDescription,
+  TechnologiesCardHeading,
+  TechnologiesCardContent,
+} from "@/ui/technologies-card";
 import { FaAlgolia, Fa42Group, Fa500Px } from "react-icons/fa6";
 
-function FeatureCardDemo({
+function TechnologiesCardDemo({
   cardDescription,
   cardHeading,
   icon,
@@ -19,21 +19,23 @@ function FeatureCardDemo({
   cardDescription: string;
 }) {
   return (
-    <FeatureCard>
-      <FeatureCardIcon>
+    <TechnologiesCard>
+      <TechnologiesCardIcon>
         {icon === "Fa42Group" && <Fa42Group />}
         {icon === "Fa500Px" && <Fa500Px />}
         {icon === "FaAlgolia" && <FaAlgolia />}
-      </FeatureCardIcon>
-      <FeatureCardHeading>{cardHeading}</FeatureCardHeading>
-      <FeatureCardDescription>{cardDescription}</FeatureCardDescription>
-      <FeatureCardContent></FeatureCardContent>
-    </FeatureCard>
+      </TechnologiesCardIcon>
+      <TechnologiesCardHeading>{cardHeading}</TechnologiesCardHeading>
+      <TechnologiesCardDescription>
+        {cardDescription}
+      </TechnologiesCardDescription>
+      <TechnologiesCardContent></TechnologiesCardContent>
+    </TechnologiesCard>
   );
 }
 
-const meta: Meta<typeof FeatureCardDemo> & TypedMetaOptions = {
-  component: FeatureCardDemo,
+const meta: Meta<typeof TechnologiesCardDemo> & TypedMetaOptions = {
+  component: TechnologiesCardDemo,
   parameters: {
     layout: "centered",
   },
@@ -51,23 +53,25 @@ const meta: Meta<typeof FeatureCardDemo> & TypedMetaOptions = {
     },
   },
   render: ({ cardDescription, cardHeading, icon }) => (
-    <FeatureCard>
-      <FeatureCardIcon>
+    <TechnologiesCard>
+      <TechnologiesCardIcon>
         {icon === "Fa42Group" && <Fa42Group />}
         {icon === "Fa500Px" && <Fa500Px />}
         {icon === "FaAlgolia" && <FaAlgolia />}
-      </FeatureCardIcon>
-      <FeatureCardHeading>{cardHeading}</FeatureCardHeading>
-      <FeatureCardDescription>{cardDescription}</FeatureCardDescription>
-      <FeatureCardContent></FeatureCardContent>
-    </FeatureCard>
+      </TechnologiesCardIcon>
+      <TechnologiesCardHeading>{cardHeading}</TechnologiesCardHeading>
+      <TechnologiesCardDescription>
+        {cardDescription}
+      </TechnologiesCardDescription>
+      <TechnologiesCardContent></TechnologiesCardContent>
+    </TechnologiesCard>
   ),
 };
 
 export default meta;
 
-type Story = StoryObj<typeof FeatureCardDemo>;
+type Story = StoryObj<typeof TechnologiesCardDemo>;
 
-export const FeatureCardDemoStory: Story = {
+export const TechnologiesCardDemoStory: Story = {
   args: {},
 };

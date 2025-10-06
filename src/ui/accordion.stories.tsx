@@ -30,7 +30,7 @@ const accordionData = [
   {
     question: "Let me know more about moneyback guarantee?",
     answer: [
-      "Our money-back guarantee ensures peace of mind by offering a full refund if you’re not satisfied with the final product within a specified time frame.",
+      "Our money-back guarantee ensures peace of mind by offering a full refund if you're not satisfied with the final product within a specified time frame.",
     ],
   },
 ];

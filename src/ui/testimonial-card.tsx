@@ -1,16 +1,15 @@
 import { cn } from "@/utils/cn";
 import Image from "next/image";
-import React, { ComponentProps } from "react";
+import React, { ComponentProps, ReactNode } from "react";
 import { FaStar } from "react-icons/fa6";
-import { TfiTwitter } from "react-icons/tfi";
-import { CiLinkedin } from "react-icons/ci";
 import Card from "@/ui/card";
 
 export type TestimonialCardProps = {
-  icon: "twitter" | "linkedin";
+  icon: ReactNode;
   name: string;
   description: string;
   designation: string;
+  socialDestination: string;
   organization: string;
 } & Pick<ComponentProps<typeof Image>, "src" | "alt">;
 
@@ -20,6 +19,7 @@ export default function TestimonialCard({
   name,
   organization,
   icon,
+  socialDestination,
   src,
   alt,
   ...props
@@ -50,14 +50,15 @@ export default function TestimonialCard({
             height={50}
           />
         </div>
-        <div
+        <a
+          target="_blank"
+          href={socialDestination}
           className={cn(
             `text-2xl opacity-50 transition-all duration-1000 group-hover:opacity-100`
           )}
         >
-          {icon === "linkedin" && <CiLinkedin />}
-          {icon === "twitter" && <TfiTwitter />}
-        </div>
+          {icon}
+        </a>
       </div>
 
       <div className={cn(`flex gap-1`)}>
