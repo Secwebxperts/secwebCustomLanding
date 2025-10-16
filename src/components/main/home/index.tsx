@@ -99,9 +99,11 @@ import {
   MotionServiceTags,
   MotionTestimonialCard,
   AutoScrollCarousel,
+  StaggerH1,
 } from "@/components/main/home/client-component-wrapper";
 import Link from "next/link";
 import Image from "next/image";
+import { MotionDiv } from "@/lib/motion";
 
 export default function HomePageComp({ ...props }: ComponentProps<"div">) {
   return (
@@ -135,28 +137,35 @@ export function HeroSection({ ...props }: ComponentProps<"section">) {
   return (
     <section {...props} className={cn(``, props.className)}>
       <style>{`.pulse{background-image:radial-gradient(circle at 50% 130%,transparent 40%,var(--color-primary-500) 45%,var(--color-primary-500) 50%,transparent 55%);animation:2s linear infinite alternate grow}@keyframes grow{0%{scale:1.7}100%{scale:1.8}}.slide{animation:1s ease-in-out infinite alternate slide}@keyframes slide{0%{left:0;transform:translateX(-50%)}100%{left:100%;transform:translateX(-50%)}}`}</style>
-      <div className={cn(`relative isolate px-10 md:px-20 lg:px-30`)}>
+      <div className={cn(`relative isolate`)}>
         <div
           className={cn(
-            `flex w-full flex-col gap-20 py-25 *:m-auto lg:flex-row`
+            `flex w-full flex-col gap-20 py-6 *:m-auto lg:flex-row`
           )}
         >
-          <AppearFromBelowDiv
+          <div
             className={cn(
               `flex max-w-100 flex-col items-center justify-center gap-y-10 text-center max-md:pt-10 md:max-w-150 xl:max-w-200`
             )}
           >
-            <div
+            <MotionDiv
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               className={cn(
-                `flex max-w-max items-center gap-4 rounded-full bg-bnw-100/5 px-2 py-1`
+                `flex max-w-max items-center gap-4 rounded-full border border-white/10 bg-bnw-100/5 px-2 py-1.75`
               )}
             >
-              <BadgeIcon className={cn(`py-0.5 text-xs`)}>2025</BadgeIcon>
-              <span className={cn(`pr-3`)}>Next-Gen AI Studio</span>
-            </div>
-            <h1 className={cn(`text-4xl leading-10 md:text-5xl md:leading-20`)}>
-              Websites That Impress, Engage & Convert!
-            </h1>
+              <div className={cn(`px-10 md:px-20 lg:px-30`)}>
+                <BadgeIcon className={cn(`py-0.5 text-sm`)}>2025</BadgeIcon>
+              </div>
+              <span className={cn(`pr-3 font-light`)}>
+                Next-Gen Design and Tech
+              </span>
+            </MotionDiv>
+            <StaggerH1
+              className={cn(`text-5xl leading-10 md:text-5xl md:leading-20`)}
+              h1Content={["AI-Driven Success ", "Redefining the Future."]}
+            />
             <p className={cn(`text-lg`)}>
               Custom, high-performance websites designed to turn visitors into
               customers.
@@ -164,7 +173,7 @@ export function HeroSection({ ...props }: ComponentProps<"section">) {
             <Link href={`/#contact-form`}>
               <Button>Book An Appointment</Button>
             </Link>
-          </AppearFromBelowDiv>
+          </div>
 
           {/* <AppearFromBelowDiv
             className={cn(

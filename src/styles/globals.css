@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -31,4 +33,6 @@ body {
   --color-primary-800: hsl(257, 66%, 22%);
   --color-primary-900: hsl(257, 68%, 11%);
   --color-primary-950: hsl(257, 68%, 6%);
+
+  --font-dm-sans: "DM Sans", sans-serif;
 }

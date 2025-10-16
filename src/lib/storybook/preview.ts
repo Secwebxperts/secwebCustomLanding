@@ -7,7 +7,7 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: ["ui", "components", ["index", "header", "main", "footer", "*"]],
+        order: ["components", ["index", "header", "main", "footer", "*"], "ui"],
       },
     },
 
@@ -45,8 +45,85 @@ export type Viewports = Record<
   }
 >;
 
+function SWEViewports(): Viewports {
+  const viewports: Viewports = {
+    "SWE-390": {
+      name: "SWE-390",
+      styles: {
+        height: `${585}px`,
+        width: `${390}px`,
+      },
+      type: "mobile",
+    },
+    "SWE-1920": {
+      name: "SWE-1200",
+      styles: {
+        height: `${585}px`,
+        width: `${1200}px`,
+      },
+      type: "desktop",
+    },
+
+    ...INITIAL_VIEWPORTS,
+  };
+
+  const removedViewports: string[] = [
+    "iphone8p",
+    // removed iphone8p in favour of iphone6p
+    // see iPhone 6 Plus (iphone6p) as it has same viewport as iPhone 8 Plus (iphone8p)
+
+    "iphonexsmax",
+    // removed iphonexsmax in favour of iphonexr
+    // see iPhone XR (iphonexr) as it has same viewport as iPhone XS Max (iphonexsmax)
+
+    "iphonese2",
+    // removed iphonese2 in favour of iphone6
+    // see iPhone 6 (iphone6) as it has same viewport as iPhone SE (2nd generation) (iphonese2)
+
+    "iphone12mini",
+    // removed iphone12mini in favour of iphonex
+    // see iPhone X (iphonex) as it has same viewport as iPhone 12 mini (iphone12mini)
+
+    "iphoneSE3",
+    // removed iphoneSE3 in favour of iphone6
+    // see iPhone 6 (iphone6) as it has same viewport as iPhone SE 3rd generation (iphoneSE3)
+
+    "iphone13",
+    // removed iphone13 in favour of iphone12
+    // see iPhone 12 (iphone12) as it has same viewport as iPhone 13 (iphone13)
+
+    "iphone13pro",
+    // removed iphone13pro in favour of iphone12
+    // see iPhone 12 (iphone12) as it has same viewport as iPhone 13 Pro (iphone13pro)
+
+    "iphone13promax",
+    // removed iphone13promax in favour of iphone12promax
+    // see iPhone 12 Pro Max (iphone12promax) as it has same viewport as iPhone 13 Pro Max (iphone13promax)
+
+    "iphone14",
+    // removed iphone14 in favour of iphone12
+    // see iPhone 12 (iphone12) as it has same viewport as iPhone 14 (iphone14)
+  ];
+
+  // ! temporary fix for decorator
+  const defaultRoatetedViewports = ["ipad", "ipad10p", "ipad11p", "ipad12p"];
+  defaultRoatetedViewports.forEach((selectedViewport) => {
+    const { height, width } = viewports[selectedViewport].styles;
+
+    viewports[selectedViewport].styles.height = width;
+    viewports[selectedViewport].styles.width = height;
+  });
+
+  removedViewports.forEach((viewportName) => {
+    delete viewports[viewportName];
+  });
+
+  return viewports;
+}
+
 function CustomViewports(): Viewports {
   const viewports: Viewports = {
+    ...SWEViewports(),
     ...INITIAL_VIEWPORTS,
     "pc-small": {
       name: "Laptop",
