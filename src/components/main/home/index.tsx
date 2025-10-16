@@ -100,6 +100,7 @@ import {
   MotionTestimonialCard,
   AutoScrollCarousel,
   StaggerH1,
+  BlurToAppearP,
 } from "@/components/main/home/client-component-wrapper";
 import Link from "next/link";
 import Image from "next/image";
@@ -136,52 +137,60 @@ export default function HomePageComp({ ...props }: ComponentProps<"div">) {
 export function HeroSection({ ...props }: ComponentProps<"section">) {
   return (
     <section {...props} className={cn(``, props.className)}>
-      <style>{`.pulse{background-image:radial-gradient(circle at 50% 130%,transparent 40%,var(--color-primary-500) 45%,var(--color-primary-500) 50%,transparent 55%);animation:2s linear infinite alternate grow}@keyframes grow{0%{scale:1.7}100%{scale:1.8}}.slide{animation:1s ease-in-out infinite alternate slide}@keyframes slide{0%{left:0;transform:translateX(-50%)}100%{left:100%;transform:translateX(-50%)}}`}</style>
+      <style>{`.pulse{background-image:radial-gradient(circle at 50% 115%,transparent 45%,var(--color-primary-500) 50%,var(--color-primary-500) 50%,transparent 55%);animation:2s linear infinite alternate grow}@keyframes grow{0%{scale:1.5}100%{scale:1.7}}.slide{animation:1s ease-in-out infinite alternate slide}@keyframes slide{0%{left:0;transform:translateX(-50%)}100%{left:100%;transform:translateX(-50%)}}`}</style>
       <div className={cn(`relative isolate`)}>
         <div
           className={cn(
-            `flex w-full flex-col gap-20 py-6 *:m-auto lg:flex-row`
+            `flex w-full flex-col gap-20 py-2 *:m-auto lg:flex-row`
           )}
         >
           <div
             className={cn(
-              `flex max-w-100 flex-col items-center justify-center gap-y-10 text-center max-md:pt-10 md:max-w-150 xl:max-w-200`
+              `flex max-w-100 flex-col items-center justify-center text-center max-md:pt-10 md:max-w-150 xl:max-w-200`
             )}
           >
             <MotionDiv
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className={cn(
-                `flex max-w-max items-center gap-4 rounded-full border border-white/10 bg-bnw-100/5 px-2 py-1.75`
+                `mt-4 flex max-w-max items-center gap-4 rounded-full border border-white/10 bg-bnw-100/5 px-2 py-1.75`
               )}
             >
-              <div className={cn(`px-10 md:px-20 lg:px-30`)}>
-                <BadgeIcon className={cn(`py-0.5 text-sm`)}>2025</BadgeIcon>
-              </div>
+              <BadgeIcon className={cn(`py-0.5 text-sm`)}>2025</BadgeIcon>
+
               <span className={cn(`pr-3 font-light`)}>
                 Next-Gen Design and Tech
               </span>
             </MotionDiv>
+
             <StaggerH1
-              className={cn(`text-5xl leading-10 md:text-5xl md:leading-20`)}
+              className={cn(
+                `mt-15 max-w-120 font-dm-sans text-5xl leading-20 md:text-5xl md:leading-20`
+              )}
               h1Content={["AI-Driven Success ", "Redefining the Future."]}
             />
-            <p className={cn(`text-lg`)}>
-              Custom, high-performance websites designed to turn visitors into
-              customers.
-            </p>
-            <Link href={`/#contact-form`}>
-              <Button>Book An Appointment</Button>
-            </Link>
-          </div>
 
-          {/* <AppearFromBelowDiv
-            className={cn(
-              `my-8 w-full max-w-140 rounded-lg bg-bnw-950 p-8 pt-16`
-            )}
-          >
-            <ContactUsForm />
-          </AppearFromBelowDiv> */}
+            <BlurToAppearP
+              className={cn(
+                `mt-15 font-dm-sans text-xl text-balance text-white/50`
+              )}
+            >
+              Creating latest solutions that redefine innovation. Stay ahead
+              with AI-powered technology for the future.
+            </BlurToAppearP>
+
+            <Link href={`/#contact-form`} className={cn(`mt-15 font-dm-sans`)}>
+              <Button
+                className={cn(
+                  `shadow-[0px_4px_20px_0px_var(--color-primary-700)]`
+                )}
+              >
+                Book An Appointment
+              </Button>
+            </Link>
+
+            <Divider className={cn(`m-auto mt-15 mb-4 h-0.5 max-w-100`)} />
+          </div>
         </div>
 
         <div
@@ -195,12 +204,14 @@ export function HeroSection({ ...props }: ComponentProps<"section">) {
             className={cn(
               `pulse absolute top-0 left-1/2 h-full w-full -translate-x-1/2 scale-170`
             )}
-          ></div>
+          />
         </div>
       </div>
 
       <AppearFromBelowDiv className={cn(`my-16 px-10 md:px-20 lg:px-30`)}>
-        <p className={cn(`pb-6 text-center text-xl`)}>Teams Who Trusted Us</p>
+        <p className={cn(`pb-6 text-center text-xl`)}>
+          Trusted By Top Innovative Teams
+        </p>
 
         <AutoScrollCarousel opts={{ loop: true }}>
           <CarouselContent>
@@ -261,9 +272,7 @@ export function HeroSection({ ...props }: ComponentProps<"section">) {
         </div>
 
         <div className={cn(`flex max-w-120 flex-col justify-center gap-4`)}>
-          <h2 className={cn(`text-4xl font-semibold`)}>
-            Frustrated with a Website That Doesn&apos;t Work for You?
-          </h2>
+          <h2 className={cn(`text-4xl font-semibold`)}>Easier & Smarter</h2>
 
           <p className={cn(`text-lg text-bnw-500`)}>
             Frustrated with a Website That Doesn&apos;t Work for You?
